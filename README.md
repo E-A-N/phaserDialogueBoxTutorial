@@ -1,5 +1,3 @@
-<!-- <div align="center"><img src="https://github.com/DallOner/Phaser-Boilerplate/blob/master/assets/img/boilerplate-logo.png"></div> -->
-
 <div align="center"><img src="https://phaser.io/images/img3.png"></div>
 
 ## How to install the game
@@ -27,7 +25,7 @@
 - From here you'll be able to play the game!
 
 ## Link to lastest stable build of game goes here:
-`https://gameName.com`
+`https://gameName.io`
 
 ## Naming Convention
 - camel casing
