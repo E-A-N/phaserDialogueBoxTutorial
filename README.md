@@ -1,4 +1,6 @@
-<div align="center"><img src="https://github.com/DallOner/Phaser-Boilerplate/blob/master/assets/img/boilerplate-logo.png"></div>
+<!-- <div align="center"><img src="https://github.com/DallOner/Phaser-Boilerplate/blob/master/assets/img/boilerplate-logo.png"></div> -->
+
+<div align="center"><img src="https://phaser.io/images/img3.png"></div>
 
 ## How to install the game
 - Install git
@@ -11,14 +13,14 @@
     - Here's a guide for the [Windows Installation of NodeJs](http://blog.teamtreehouse.com/install-node-js-npm-windows)
     - Here's a guide for the [Mac Installation of NodeJs](http://blog.teamtreehouse.com/install-node-js-npm-mac)
 - Inside commandline navigate to "eansPhaserBoilerPlate" folder
-    - This should be achieved by entering `cd eanPhaserBoilerPlate`
+    - This should be achieved by entering `cd apGameJamTemplate`
 - In command line run `npm install`
     - Our backend uses nodejs so this will install the resources our projects needs to run independently
 
 ## How to run the game
-- Inside commandline navigate to "eansPhaserBoilerPlate" folder (if you're not already there)
-    - This should be achieved by entering `cd eanPhaserBoilerPlate`
-- In command line run `npm start`
+- On the command line navigate to "apGameJamTemplate" folder (if you're not already there)
+    - This should be achieved by entering `cd apGameJamTemplate`
+- On command line run `npm start`
     - This script actually starts up our server (which means our game is running)
 - Open up a web browser and go to this address `http://localhost:7777`
     - `http://127.0.0.1:7777` also works because these are representations of the "home" address
