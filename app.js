@@ -12,13 +12,14 @@ let gameRoute = path.join(__dirname, sitePath);
 gameRoute = path.normalize(gameRoute);
 
 //request logging
-app.use(function(req, res, next) {
+app.use( (req, res, next) => {
 	console.log(req.url);
 	next();
 });
 
 app.use(express.static(gameRoute));
 
-app.listen(port, noArgs => {
+app.listen(port, (noArgs) => {
     console.log(`Server running at: ${gameRoute}`);
+		console.log(address + port);
 });
