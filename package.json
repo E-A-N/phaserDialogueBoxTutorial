@@ -1,21 +1,21 @@
 {
-  "name": "eansphaserboilerplate",
+  "name": "apgamejamtemplate",
   "version": "1.0.0",
-  "description": "A boiler plate for running phaser games",
+  "description": "A template for making phaser games",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/E-A-N/eansPhaserBoilerPlate.git"
+    "url": "git+https://github.com/Ant-Pixel/apGameJamTemplate.git"
   },
-  "author": "Ean Moore",
+  "author": "Ant Pixel",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/E-A-N/eansPhaserBoilerPlate/issues"
+    "url": "https://github.com/Ant-Pixel/apGameJamTemplate/issues"
   },
-  "homepage": "https://github.com/E-A-N/eansPhaserBoilerPlate#readme",
+  "homepage": "https://github.com/Ant-Pixel/apGameJamTemplate#readme",
   "dependencies": {
     "express": "^4.16.2"
   }
