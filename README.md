@@ -1,4 +1,4 @@
-<div align="center"><img src="https://phaser.io/images/img3.png"></div>
+<div align="center"><img src="https://e-a-n.github.io/antPixelGraphics/images/fullLogo497X392.png"></div>
 
 ## How to install the game
 - Install git

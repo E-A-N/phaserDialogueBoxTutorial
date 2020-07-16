@@ -22,10 +22,10 @@ config.loadState = {
 config.bootState = {};
 config.menuState = {
     logo : {
-        x: config.default.gameSpecs.width * 0.5,
-        y: config.default.gameSpecs.height * 0.5,
+        x: 25,
+        y: 50,
         spriteKey: "menuLogo",
-        spriteSrc: "assets/img/phaserLogo.png"
+        spriteSrc: "assets/img/antPixelLogo.png"
     }
 };
 
