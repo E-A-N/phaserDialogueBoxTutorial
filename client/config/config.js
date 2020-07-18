@@ -7,6 +7,10 @@ config.default.gameSpecs = {
     parentID : "gameContainer"
 };
 
+config.default.graphicSources = {
+    bitmapFont: "carrierCommand",
+}
+
 config.default.audio = {
     root: "assets/audio/",
     settings: {
@@ -40,6 +44,13 @@ config.default.audio.ui = {
         key: "denied1"
     }
 };
+
+config.default.dialogue = {
+    messages :{
+        test: "Hey! This is a test message! :D"
+    }
+};
+
 
 config.loadState = {
     style: {
@@ -79,6 +90,18 @@ config.default.stateManager = {
     exampleState: "example"
 }
 
+config.default.dialogue.settings = {
+    background: config.exampleState.guiBlock.spriteKey,
+    fontFamily: config.default.graphicSources.bitmapFont,
+    fontSize: 10,
+    typeDelay: 0.03,
+    width: 500,
+    height: 200,
+    wordWrap: true,
+    messageYOffset: 10,
+    messageXOffset: 45,
+    messageWidthOffset: 70,
+}
 
 
 let isNodeJsCompatible = typeof module !== "undefined"
