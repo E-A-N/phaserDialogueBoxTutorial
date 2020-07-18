@@ -1,36 +1,47 @@
-const loadState = {
+const loadState = {};
 
-    preload: () => {
+loadState.loadAudio = () => {
+    let sfxUI = Object.keys(config.default.audio.ui);
 
-        /*
-        Load all game assets
-        Place your load bar, some messages.
-        In this case of loading, only text is placed...
-        */
+    sfxUI.forEach((sfx) => {
+        let sound = config.default.audio.ui[sfx];
+        game.load.audio(sound.key, sound.src);
+    });
+}
 
-        let loadingLabel = game.add.text(
-            config.loadState.label.x,
-            config.loadState.label.y,
-            config.loadState.label.print,
-            config.loadState.style
-        );
+loadState.preload = () => {
 
-        //Load your images, spritesheets, bitmaps...
-        game.load.image(config.menuState.logo.spriteKey, config.menuState.logo.spriteSrc);
+    /*
+    Load all game assets
+    Place your load bar, some messages.
+    In this case of loading, only text is placed...
+    */
 
+    let loadingLabel = game.add.text(
+        config.loadState.label.x,
+        config.loadState.label.y,
+        config.loadState.label.print,
+        config.loadState.style
+    );
 
-        //Load your sounds, efx, music...
-        //Example: game.load.audio('rockas', 'assets/snd/rockas.wav');
+    //Load your images, spritesheets, bitmaps...
+    game.load.image(config.menuState.logo.spriteKey, config.menuState.logo.spriteSrc);
+    game.load.image(config.exampleState.guiBlock.spriteKey, config.exampleState.guiBlock.spriteSrc);
 
-        //Load your data, JSON, Querys...
-        //Example: game.load.json('version', 'http://phaser.io/version.json');
+    
+    //Load your sounds, efx, music...
+    //Example: game.load.audio('rockas', 'assets/snd/rockas.wav');
+    loadState.loadAudio();
+    
+    //Load your data, JSON, Querys...
+    //Example: game.load.json('version', 'http://phaser.io/version.json');
 
-    },
-
-    create: ()  => {
-
-        game.stage.setBackgroundColor('#000');
-        game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
-        game.state.start('menu');
-    }
 };
+
+loadState.create = ()  => {
+
+    game.stage.setBackgroundColor('#000');
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+    game.state.start('menu');
+};
+

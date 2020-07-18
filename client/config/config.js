@@ -6,6 +6,41 @@ config.default.gameSpecs = {
     renderType: Phaser.AUTO,
     parentID : "gameContainer"
 };
+
+config.default.audio = {
+    root: "assets/audio/",
+    settings: {
+        volume: 0.5
+    },
+};
+
+config.default.audio.ui = {
+    keystroke1 : {
+        src: "assets/audio/softClack.mp3",
+        key: "keystroke1"
+    },
+    keystroke2 : {
+        src: "assets/audio/typeWriterKeyStroke.mp3",
+        key: "keystroke2"
+    },
+    confirm1 : {
+        src: "assets/audio/strangeConfirm.mp3",
+        key: "confirm1"
+    },
+    confirm2 : {
+        src: "assets/audio/teleport.mp3",
+        key: "confirm2"
+    },
+    select1 : {
+        src: "assets/audio/ting.mp3",
+        key: "select1"
+    },
+    denied1 : {
+        src: "assets/audio/denied.mp3",
+        key: "denied1"
+    }
+};
+
 config.loadState = {
     style: {
         font: "30px Courier",
@@ -29,11 +64,19 @@ config.menuState = {
     }
 };
 
+config.exampleState = {
+    guiBlock: {
+        spriteKey: "guiBlock",
+        spriteSrc: "assets/img/whiteGUI.png"
+    }
+};
+
 
 config.default.stateManager = {
     bootState: "boot",
     loadState: "load",
-    menuState: "menu"
+    menuState: "menu",
+    exampleState: "example"
 }
 
 
