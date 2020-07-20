@@ -8,5 +8,4 @@ let exampleState = {
         dia.init(game, config.default.dialogue.settings);
         dia.displayMessage("Hello World!", null, true);
     },
-
 };

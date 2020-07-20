@@ -35,7 +35,12 @@ loadState.preload = () => {
     
     //Load your data, JSON, Querys...
     //Example: game.load.json('version', 'http://phaser.io/version.json');
-
+    let mainFont = [
+        config.default.graphics.font.key,
+        config.default.graphics.font.image,
+        config.default.graphics.font.map
+    ];
+    game.load.bitmapFont(...mainFont);
 };
 
 loadState.create = ()  => {

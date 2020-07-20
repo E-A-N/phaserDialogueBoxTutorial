@@ -7,8 +7,12 @@ config.default.gameSpecs = {
     parentID : "gameContainer"
 };
 
-config.default.graphicSources = {
-    bitmapFont: "carrierCommand",
+config.default.graphics = {
+    font: {
+        key: "carrierCommand",
+        image: "assets/font/carrierCommand.png",
+        map: "assets/font/carrierCommand.xml"
+    } 
 }
 
 config.default.audio = {
@@ -92,7 +96,7 @@ config.default.stateManager = {
 
 config.default.dialogue.settings = {
     background: config.exampleState.guiBlock.spriteKey,
-    fontFamily: config.default.graphicSources.bitmapFont,
+    fontFamily: config.default.graphics.font.key,
     fontSize: 10,
     typeDelay: 0.03,
     width: 500,
