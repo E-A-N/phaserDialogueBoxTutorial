@@ -98,12 +98,13 @@ config.default.dialogue.settings = {
     background: config.exampleState.guiBlock.spriteKey,
     fontFamily: config.default.graphics.font.key,
     fontSize: 10,
+    fontColor: "777777",
     typeDelay: 0.03,
-    width: 500,
+    width: config.default.gameSpecs.width,
     height: 200,
     wordWrap: true,
     messageYOffset: 10,
-    messageXOffset: 45,
+    messageXOffset: 0,
     messageWidthOffset: 70,
 }
 
