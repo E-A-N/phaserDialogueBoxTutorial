@@ -1,6 +1,6 @@
 <div align="center"><img src="https://e-a-n.github.io/antPixelGraphics/images/fullLogo497X392.png"></div>
 
-## How to install the game
+## How to download and install the example
 - Install git
     - Here's an installion guide for [git](https://www.atlassian.com/git/tutorials/install-git)
 - Install github (optional)
@@ -27,80 +27,89 @@
 ## Link to lastest stable build of game goes here:
 `https://gameName.io`
 
-## Naming Convention
-- camel casing
-    - applies to coding, files, and folders
-    - example: `var name = "eanCharacter"`
-- no capitalizing 1st letters
+# Phaser 2 Dialogue Box
 
-## Basic Source Control (using git)
-- When submitting a change ALWAYS commit then pull, before you push!
-    - `git add -A` (tracks files and adds them to staging)
-    - `git commit -m "adding my file msg"` (timestamps your changes to the repository)
-    - `git pull origin master` (pulls latest changes from repository)
-    - `git push origin master` (pushes your updated changes to repository for other people to pull)
-    - Sometimes a push or pull may result in a merge conflict, when this happens just make resolve the conflict by updating files to their correct version manually.
+### How to use
 
-## Workflow
-- Generic Asset Integration
-    - Art, sounds, json files, or any file that does not contain game logic can be considered a generic asset
-    - Before any assets are created make sure any specs are documented
-    - Assets that are complete should be inserted into the `assetDump` directory
-    - If assets matches specs then a technical artist can add them to correct part of repository
-    - Make sure to update any indexes and dependency references (like index.html) so assets can be loaded into the game
-- **Add a google drive or cloud storage link for assets here**      
+***Initalize the variable that will contain the dialogue and make sure a bitmap Font is loaded! This tool only supports bitmap fonts!***
+```javascript
+let dialogueBox;
+let preload = () => {
+    game.load.bitmapFont("carrierCommand", "assets/font/carrierCommand.png", "assets/font/carrierCommand.xml");
+};
+```
+<br>
 
-## Pipeline
-- **Adding Game States**
-    - Create new javascript file in javascript directory.
-    - Declare state name inside of a new js file.
-        - ` var gameState = {}; `
-    - Go to index.html and add it to the script BEFORE stateManager.
-        - `<script type="text/javascript" src="javascript/gameState.js"></script> `
-        - `<script type="text/javascript" src="javascript/stateManager.js"></script>`
-    - Inside the stateManager add the state
-        - `game.state.add("gameStateKey",gameState);`
-    - To access use game.state.start from any point in the game
-        - `game.state.start("gameStateKey");`
+***Create a config and  call the Dialogue.init method inside `create` passing in the game and config variables***
+```javascript
+let create = () => {
+    let config = {
+        spriteKey: "atlasKey",
+        background: "backgroundSpriteKey",
+        closeButton: "closeButtonSpriteKey",
+        fontFamily: "carrierCommand",
+        fontSize: 12,
+        typeDelay: .03,
+        width: 500,
+        height: 200,
+        wordWrap: true
+    }
+    let dialogueBox = Dialogue.init(game, config);    
+}
+```
+<br><br>
+***Here's how to display single messages***
+```javascript
+//set the second parameter to true if you want the message to be type written!
+dialogueBox.displayMessage("You have started a new game!", true); //true is default value
 
-- **Deploying**
-    - Bump the build number in ```buildVersion.txt```
-        - Build number convention is ```Version.Major.Minor``` Example: ```1.5.11```
+//display the entire message instantly
+dialogueBox.displayMessage("Welcome, new player!", false);
+```
+<br><br>
 
-## Config Information
-  - ***settings.js***
-    - `stage` contains default width and height parameters of game
+***To display a chain of messages just method chain the `displayMessages` function in subsequent fashion***
+```javascript
+dialogueBox
+    .displayMessage("Welcome, the world of Dialogue!", true)
+    .displayMessage("You are about embark on a new Adventure!", true)
+    .displayMessage("This is a place where dreams come true!", true);
+```
+<br><br>
 
+***The `displayMessage` method also takes in a callback***
+```javascript
+dialogueBox
+    .displayMessage("Welcome, the world of Dialogue!", true, (dialogueSprite, messageText) => {
+        console.log("You can refer to the dialogue box and text for effects on the go!", dialgueSprite, messageText);
+    })
+    .displayMessage("You are about embark on a new Adventure!", true, () => {
+        inspiringAudio.play();
+    })
+    .displayMessage("This is a place where dreams come true!", true);
+```
+<br><br>
 
-# Current Project Roles
-
-### Init Logic
-   * Init Logic creates the game itself, and ensures that all dependencies exist.
-
-### Boot Logic
-   * Boot Logic Dictates how we start the game and the context in which we start the game.
-
-### Loader Logic
-   * Loader Logic is decides how and when we manage the including of resources in the game
-
-### Game Start Logic
-   * Game Start Logic determines how we start the game (a main menu for example) and should ideally only happen once
-
-### Game Loop
-   * Game Loop is where movement, physics, game play logic, etc is implemented
-
-### Game Over Logic
-
-   * This logic occurs when the game loop has ended
-
-### Finite State Machine (FSM)
-   * FSMs control the transitions, initiation, and referencing of various game states.
-
-## Contributers
-<a href="https://github.com/E-A-N">
-    <img width="100" height="100" src="https://avatars1.githubusercontent.com/u/17329104?s=460&v=4">
-</a>
-
-<a href="https://github.com/JohnJBarrett22">
-    <img width="100" height="100" src="https://avatars0.githubusercontent.com/u/44798179?s=400&v=4">
-</a>
+***The Dialogue interface has callbacks that function as pseudo events***
+```javascript
+dialogueBox
+    .setOnTypeCallBack((dialogueSprite, char) => {
+        //This function will occur for each letter in the current message
+        robotVoice.play();
+    })
+    .setOnCloseCallBack(() => {
+        //Once all of the message are displayed, go to next the next level!
+        game.state.start("nextStage");
+    })
+    .displayMessage("Did it not occur to you, that I am a robot?", true, () => {
+        shockingMusic.play();
+    })
+    .setOnTypeCallBack((dialogueSprite, char) => {
+        humanVoice.play();
+    })
+    .displayMessage("This...This is impossible!!", true)
+    .setOnTypeCallBack((dialogueSprite, char) => {
+        robotVoice.play();
+    })
+    .displayMessage("Anything is possible, human.", true);
+```
