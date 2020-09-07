@@ -18,13 +18,21 @@ let exampleState = {
             clearCurrentImages: false
         } 
 
+        let messageData = {
+            message: "This is new message data!",
+            imageData: diaImageData
+        }
 
         let dia = PhaserDialogue();
         dia.init(game, boxSettings);
-        dia.displayMessage("Hello World!", diaImageData, true)
-           .displayMessage("This is the next one bb!")
-           .displayMessage("Type writing the next message just to make sure!", null, true)
-
+        dia.displayMessage(messageData, () => {
+            dia.typewrite = true;
+        })
+        dia.queMessage({
+            message: "we must continue this fight!"
+        })
+        dia.queMessage({message: "honestly, thank you for playing!"})
+           
         // boxSettings.typeDelay = 0.2
         // let d2 = PhaserDialogue();
         // d2.init(game, boxSettings);

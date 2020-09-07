@@ -107,9 +107,9 @@ config.default.dialogue.settings = {
     width: config.default.gameSpecs.width,
     height: 200,
     wordWrap: true,
-    messageYOffset: 10,
-    messageXOffset: 0,
-    messageWidthOffset: 70,
+    messageYOffset: 20,
+    messageXOffset: 30,
+    messageWidthOffset: 95,
     y: 0
 }
 
