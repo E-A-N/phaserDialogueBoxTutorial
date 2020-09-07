@@ -5,7 +5,7 @@ let exampleState = {
         console.log("example state has been activated");
         let boxSettings = config.default.dialogue.settings;
 
-        let antData =  {
+        let eanImage =  {
             sprite: [0, 0, config.exampleState.ean.spriteKey],
             width: 100,
             height: 100,
@@ -13,13 +13,22 @@ let exampleState = {
         }
 
         let diaImageData = {
-            images: [antData],
+            images: [eanImage],
             hasNewImages: true,
             clearCurrentImages: false
         } 
 
+        let messages = [
+            "Hi!",
+            "My name is Cyborg Ean!!",
+            "This is the Phaser Dialogue Box basic tutorial!",
+            "Personally, I love Phaser! This is partly why I started an open source gamedev group and began work on this tool!",
+            "If you want to see how this was created, visit this branch on github...:",
+            "Best of luck to you!"
+        ]
+
         let messageData = {
-            message: "This is new message data!",
+            message: messages.shift(),
             imageData: diaImageData
         }
 
@@ -27,17 +36,13 @@ let exampleState = {
         dia.init(game, boxSettings);
         dia.displayMessage(messageData, () => {
             dia.typewrite = true;
-        })
-        dia.queMessage({
-            message: "we must continue this fight!"
-        })
-        dia.queMessage({message: "honestly, thank you for playing!"})
+            messages.forEach((messageText) => {
+                dia.queMessage({message: messageText})
+            });
+        });
+        
            
-        // boxSettings.typeDelay = 0.2
-        // let d2 = PhaserDialogue();
-        // d2.init(game, boxSettings);
-        // d2.container.y = 0;
-        // d2.displayMessage("This should be from a bit higher", null, true);
+
 
     }
 };

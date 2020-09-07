@@ -99,6 +99,7 @@ config.default.stateManager = {
 }
 
 config.default.dialogue.settings = {
+    align: "left",
     background: config.exampleState.guiBlock.spriteKey,
     fontFamily: config.default.graphics.font.key,
     fontSize: 10,
@@ -108,7 +109,7 @@ config.default.dialogue.settings = {
     height: 200,
     wordWrap: true,
     messageYOffset: 20,
-    messageXOffset: 30,
+    messageXOffset: 40,
     messageWidthOffset: 95,
     y: 0
 }
