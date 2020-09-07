@@ -83,6 +83,10 @@ config.exampleState = {
     guiBlock: {
         spriteKey: "guiBlock",
         spriteSrc: "assets/img/whiteGUI.png"
+    },
+    ean:{
+        spriteKey: "eanPlusPlus",
+        spriteSrc: "assets/img/eanPlusPlus.jpg"
     }
 };
 

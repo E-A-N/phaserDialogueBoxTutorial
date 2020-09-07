@@ -8,7 +8,13 @@ let exampleState = {
 
         //let antData =  [config.menuState.logo.x, config.menuState.logo.y, config.menuState.logo.spriteKey];
 
-        let antData =  [0, 0, config.menuState.logo.spriteKey];
+        let antData =  {
+            sprite: [0, 0, config.exampleState.ean.spriteKey],
+            width: 100,
+            height: 100,
+            caption: "Ean"
+        }
+
         let diaImageData = {
             images: [antData],
             hasNewImages: true,
@@ -19,7 +25,7 @@ let exampleState = {
         let dia = PhaserDialogue();
         dia.init(game, boxSettings);
         dia.displayMessage("Hello World!", diaImageData, true)
-           .displayMessage("This is the next one bb!", {clearCurrentImages: true})
+           .displayMessage("This is the next one bb!")
            .displayMessage("Type writing the next message just to make sure!", null, true)
 
         // boxSettings.typeDelay = 0.2
