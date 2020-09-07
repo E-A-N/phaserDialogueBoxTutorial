@@ -110,6 +110,7 @@ config.default.dialogue.settings = {
     messageYOffset: 10,
     messageXOffset: 0,
     messageWidthOffset: 70,
+    y: 0
 }
 
 

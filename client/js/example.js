@@ -5,9 +5,6 @@ let exampleState = {
         console.log("example state has been activated");
         let boxSettings = config.default.dialogue.settings;
 
-
-        //let antData =  [config.menuState.logo.x, config.menuState.logo.y, config.menuState.logo.spriteKey];
-
         let antData =  {
             sprite: [0, 0, config.exampleState.ean.spriteKey],
             width: 100,
