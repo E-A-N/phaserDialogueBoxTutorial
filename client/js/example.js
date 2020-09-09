@@ -22,10 +22,18 @@ let exampleState = {
             "Hi!",
             "My name is Cyborg Ean!!",
             "This is the Phaser Dialogue Box basic tutorial!",
-            "Personally, I love Phaser! This is partly why I started an open source gamedev group and began work on this tool!",
+            "Personally, I love Phaser! This is partly why I started an open source gamedev group and began work on this awesome tool!",
+            "It is my understanding that you wish to learn the ways of javascript and phaser!",
+            "Follow me, and I will show the way!!",
+            "Oh...",
+            "Who am I?",
+            "A little about me...",
+            "I love thai food...",
+            "I love fitness...",
+            "and I LOVE thai food!! :)",
             "If you want to see how this was created, visit this branch on github...:",
             "Best of luck to you!"
-        ]
+        ];
 
         let messageData = {
             message: messages.shift(),

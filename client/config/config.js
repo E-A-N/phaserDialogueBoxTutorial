@@ -90,7 +90,6 @@ config.exampleState = {
     }
 };
 
-
 config.default.stateManager = {
     bootState: "boot",
     loadState: "load",
@@ -108,7 +107,7 @@ config.default.dialogue.settings = {
     width: config.default.gameSpecs.width,
     height: 200,
     wordWrap: true,
-    messageYOffset: 20,
+    messageYOffset: 5,
     messageXOffset: 40,
     messageWidthOffset: 95,
     y: 0
