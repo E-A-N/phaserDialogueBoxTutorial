@@ -49,5 +49,6 @@ loadState.create = ()  => {
     game.stage.setBackgroundColor('#000');
     game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
     game.state.start('menu');
+    game.state.start(config.default.stateManager.exampleState);
 };
 
