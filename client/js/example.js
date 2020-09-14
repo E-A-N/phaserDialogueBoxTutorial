@@ -2,7 +2,7 @@ let exampleState = {
 
     create: () => {
         game.stage.setBackgroundColor('#777777');
-        console.log("example state has been activated");
+        exampleState.initParticleSystem();
         let boxSettings = config.default.dialogue.settings;
 
         let antData =  {
@@ -41,3 +41,23 @@ let exampleState = {
 
     }
 };
+
+
+
+exampleState.particleBurst = (pointer) => {
+    exampleState.emitter.x = pointer.x;
+    exampleState.emitter.y = pointer.y;
+    exampleState.emitter.start(true, 1000, null, 5);
+
+}
+
+exampleState.initParticleSystem = () => {
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+    let emitter = game.add.emitter(0 ,0, 100);
+    emitter.makeParticles(config.menuState.logo.spriteKey);
+    emitter.gravity = 100;
+    exampleState.emitter = emitter;
+    game.input.onDown.add(exampleState.particleBurst, exampleState);
+
+    return emitter;
+}
