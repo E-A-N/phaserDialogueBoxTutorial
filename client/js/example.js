@@ -2,7 +2,9 @@ let exampleState = {
 
     create: () => {
         game.stage.setBackgroundColor('#777777');
+        game.physics.startSystem(Phaser.Physics.ARCADE);
         exampleState.initParticleSystem();
+        exampleState.controls = game.input.keyboard.createCursorKeys();
         let boxSettings = config.default.dialogue.settings;
 
         let antData =  {
@@ -47,17 +49,32 @@ let exampleState = {
 exampleState.particleBurst = (pointer) => {
     exampleState.emitter.x = pointer.x;
     exampleState.emitter.y = pointer.y;
-    exampleState.emitter.start(true, 1000, null, 5);
+    exampleState.emitter.start(true, 1500, null, 5);
 
 }
 
 exampleState.initParticleSystem = () => {
-    game.physics.startSystem(Phaser.Physics.ARCADE);
     let emitter = game.add.emitter(0 ,0, 100);
     emitter.makeParticles(config.menuState.logo.spriteKey);
-    emitter.gravity = 100;
+    emitter.gravity = 300;
     exampleState.emitter = emitter;
     game.input.onDown.add(exampleState.particleBurst, exampleState);
 
     return emitter;
+}
+
+exampleState.update = () => {
+    let cursors = exampleState.controls;
+    if (cursors.left.isDown){
+        console.log("you\'re now pressing left!")
+    }
+    else if (cursors.up.isDown) {
+        console.log("you\'re now pressing up!")
+    }
+    else if (cursors.right.isDown) {
+        console.log("you\'re now pressing right!")
+    }
+    else if (cursors.down.isDown) {
+        console.log("you\'re now pressing down!")
+    }
 }
