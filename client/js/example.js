@@ -5,6 +5,7 @@ let exampleState = {
         console.log("example state has been activated");
         let boxSettings = config.default.dialogue.settings;
         let typeSound = game.add.audio(config.default.audio.ui.keystroke1.key);
+        let backgroundMusic = game.add.audio(config.default.audio.ui.backgroundMusic1.key);
         let eanImage =  {
             sprite: [0, 0, config.exampleState.ean.spriteKey],
             width: 100,
@@ -45,11 +46,14 @@ let exampleState = {
             imageData: diaImageData
         }
 
+        backgroundMusic.play();
         let dia = PhaserDialogue();
         dia.init(game, boxSettings);
+        dia.onClose = () => {
+            backgroundMusic.stop();
+        }
         dia.setOnTypeCallback(dia, (msg, chr) => {
             typeSound.play();
-            console.log("hi")
         });
         dia.displayMessage(messageData, () => {
             dia.typewrite = true;

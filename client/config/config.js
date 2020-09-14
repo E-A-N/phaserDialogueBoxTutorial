@@ -31,6 +31,10 @@ config.default.audio.ui = {
         src: "assets/audio/typeWriterKeyStroke.mp3",
         key: "keystroke2"
     },
+    backgroundMusic1 :{
+        src: "assets/audio/kirbySuperStarTutorial.mp3",
+        key: "backgroundMusic1"  
+    },
     confirm1 : {
         src: "assets/audio/strangeConfirm.mp3",
         key: "confirm1"
