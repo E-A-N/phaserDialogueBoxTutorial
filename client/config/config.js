@@ -63,7 +63,7 @@ config.loadState = {
     },
     label: {
         text : {
-            x: 80,
+            x: 200,
             y: 150,
             print: "loading..."
         }
@@ -87,6 +87,10 @@ config.exampleState = {
     ean:{
         spriteKey: "eanPlusPlus",
         spriteSrc: "assets/img/eanPlusPlus.jpg"
+    },
+    bruce:{
+        spriteKey: "bruce",
+        spriteSrc: "assets/img/bruce.jpg"
     }
 };
 
@@ -98,7 +102,7 @@ config.default.stateManager = {
     exampleState: "example"
 }
 
-config.default.dialogue.settings = {
+config.default.dialogue.topBoxSettings = {
     background: config.exampleState.guiBlock.spriteKey,
     fontFamily: config.default.graphics.font.key,
     fontSize: 10,
@@ -113,6 +117,20 @@ config.default.dialogue.settings = {
     y: 0
 }
 
+config.default.dialogue.bottomBoxSettings = {
+    background: config.exampleState.guiBlock.spriteKey,
+    fontFamily: config.default.graphics.font.key,
+    fontSize: 10,
+    fontColor: "777777",
+    typeDelay: 0.03,
+    width: config.default.gameSpecs.width,
+    height: 200,
+    wordWrap: true,
+    messageYOffset: 20,
+    messageXOffset: -95,
+    messageWidthOffset: 95,
+    y: 250
+}
 
 let isNodeJsCompatible = typeof module !== "undefined"
 if (isNodeJsCompatible)  {
