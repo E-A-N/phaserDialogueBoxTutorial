@@ -34,27 +34,26 @@ let exampleState = {
         } 
 
         let messageDataTop = {
-            message: "I'm Ean!",
+            message: "Whats up! My name is Ean!!",
             imageData: diaImageDataTop
         }
 
         let messageDataBottom = {
-            message: "I'm John!",
+            message: "Hey! My name is John!",
             imageData: diaImageDataBottom
         }
 
         let eanDialogue = PhaserDialogue();
         eanDialogue.init(game, boxSettingsTop);
         eanDialogue.displayMessage(messageDataTop);
-        eanDialogue.displayMessage({message: "???"},() => {
+        eanDialogue.queMessage({message: "STILL NOT SHOWING???"}, () => {
             eanDialogue.typewrite = true;
             eanDialogue.clearQue();
-            eanDialogue.displayMessage({message: "Whats up! My name is Ean!!"});
-            eanDialogue.queMessage({message: "I love to program!"});
+            eanDialogue.displayMessage({message: "I love programming!"});
             eanDialogue.queMessage({message: "...and I also love Thai Food!!!"}, () => {
                 johnDialogue.displayMessage({message: "Nice man! I love Thai Food too!!!"});
             });
-            eanDialogue.queMessage({message: "I'm about to go get down with this game jam, wanna roll?"}, () => {
+            eanDialogue.displayMessage({message: "I'm about to go get down with this game jam, wanna roll?"}, () => {
                 johnDialogue.displayMessage({message: "Yah let's do it!"}, () => {
                     eanDialogue.displayMessage({message: "Let's go!"});
                 });
