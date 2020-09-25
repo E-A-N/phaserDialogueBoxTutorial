@@ -44,27 +44,25 @@ let exampleState = {
         }
 
         let eanDialogue = PhaserDialogue();
-        eanDialogue.init(game, boxSettingsTop);
-        eanDialogue.displayMessage(messageDataTop);
-        eanDialogue.queMessage({message: "STILL NOT SHOWING???"}, () => {
+            eanDialogue.init(game, boxSettingsTop);
+            eanDialogue.displayMessage(messageDataTop);
             eanDialogue.typewrite = true;
-            eanDialogue.clearQue();
-            eanDialogue.displayMessage({message: "I love programming!"});
+            eanDialogue.queMessage({message: "Nice meeting you John!"});
+            eanDialogue.queMessage({message: "I love programming!"});
             eanDialogue.queMessage({message: "...and I also love Thai Food!!!"}, () => {
                 johnDialogue.displayMessage({message: "Nice man! I love Thai Food too!!!"});
             });
-            eanDialogue.displayMessage({message: "I'm about to go get down with this game jam, wanna roll?"}, () => {
+            eanDialogue.queMessage({message: "I'm about to go get down with this game jam, wanna roll?"}, () => {
                 johnDialogue.displayMessage({message: "Yah let's do it!"}, () => {
                     eanDialogue.displayMessage({message: "Let's go!"});
                 });
             });
-        });
 
 
         let johnDialogue = PhaserDialogue();
-        johnDialogue.init(game, boxSettingsBottom)
-        johnDialogue.displayMessage(messageDataBottom);
-        johnDialogue.typewrite = true;
+            johnDialogue.init(game, boxSettingsBottom)
+            johnDialogue.displayMessage(messageDataBottom);
+            johnDialogue.typewrite = true;
         
         
 
