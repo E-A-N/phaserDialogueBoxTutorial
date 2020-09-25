@@ -3,36 +3,69 @@ let exampleState = {
     create: () => {
         game.stage.setBackgroundColor('#777777');
         console.log("example state has been activated");
-        let boxSettings = config.default.dialogue.settings;
+        let boxSettingsTop = config.default.dialogue.topBoxSettings;
+        let boxSettingsBottom = config.default.dialogue.bottomBoxSettings;
 
-        let antData =  {
+
+        let antDataTop =  {
             sprite: [0, 0, config.exampleState.ean.spriteKey],
             width: 100,
             height: 100,
             caption: "Ean"
         }
 
-        let diaImageData = {
-            images: [antData],
+        let antDataBottom =  {
+            sprite: [275, 0, config.exampleState.john.spriteKey],
+            width: 100,
+            height: 100,
+            caption: "John"
+        }
+
+        let diaImageDataTop = {
+            images: [antDataTop],
+            hasNewImages: true,
+            clearCurrentImages: false
+        }
+
+        let diaImageDataBottom = {
+            images: [antDataBottom],
             hasNewImages: true,
             clearCurrentImages: false
         } 
 
-        let messageData = {
-            message: "This is new message data!",
-            imageData: diaImageData
+        let messageDataTop = {
+            message: "Whats up! My name is Ean!!",
+            imageData: diaImageDataTop
         }
 
-        let dia = PhaserDialogue();
-        dia.init(game, boxSettings);
-        dia.displayMessage(messageData, () => {
-            dia.typewrite = true;
-        })
-        dia.queMessage({
-            message: "we must continue this fight!"
-        })
-        dia.queMessage({message: "honestly, thank you for playing!"})
-           
+        let messageDataBottom = {
+            message: "Hey! My name is John!",
+            imageData: diaImageDataBottom
+        }
+
+        let eanDialogue = PhaserDialogue();
+            eanDialogue.init(game, boxSettingsTop);
+            eanDialogue.displayMessage(messageDataTop);
+            eanDialogue.typewrite = true;
+            eanDialogue.queMessage({message: "Nice meeting you John!"});
+            eanDialogue.queMessage({message: "I love programming!"});
+            eanDialogue.queMessage({message: "...and I also love Thai Food!!!"}, () => {
+                johnDialogue.displayMessage({message: "Nice man! I love Thai Food too!!!"});
+            });
+            eanDialogue.queMessage({message: "I'm about to go get down with this game jam, wanna roll?"}, () => {
+                johnDialogue.displayMessage({message: "Yah let's do it!"}, () => {
+                    eanDialogue.displayMessage({message: "Let's go!"});
+                });
+            });
+
+
+        let johnDialogue = PhaserDialogue();
+            johnDialogue.init(game, boxSettingsBottom)
+            johnDialogue.displayMessage(messageDataBottom);
+            johnDialogue.typewrite = true;
+        
+        
+
         // boxSettings.typeDelay = 0.2
         // let d2 = PhaserDialogue();
         // d2.init(game, boxSettings);
