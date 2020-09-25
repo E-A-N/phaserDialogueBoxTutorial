@@ -28,7 +28,7 @@ loadState.preload = () => {
     game.load.image(config.menuState.logo.spriteKey, config.menuState.logo.spriteSrc);
     game.load.image(config.exampleState.guiBlock.spriteKey, config.exampleState.guiBlock.spriteSrc);
     game.load.image(config.exampleState.ean.spriteKey, config.exampleState.ean.spriteSrc);
-    game.load.image(config.exampleState.bruce.spriteKey, config.exampleState.bruce.spriteSrc);
+    game.load.image(config.exampleState.john.spriteKey, config.exampleState.john.spriteSrc);
 
     
     //Load your sounds, efx, music...

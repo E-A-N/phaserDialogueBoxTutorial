@@ -88,9 +88,9 @@ config.exampleState = {
         spriteKey: "eanPlusPlus",
         spriteSrc: "assets/img/eanPlusPlus.jpg"
     },
-    bruce:{
-        spriteKey: "bruce",
-        spriteSrc: "assets/img/bruce.jpg"
+    john:{
+        spriteKey: "john",
+        spriteSrc: "assets/img/john.png"
     }
 };
 
@@ -112,7 +112,7 @@ config.default.dialogue.topBoxSettings = {
     height: 200,
     wordWrap: true,
     messageYOffset: 20,
-    messageXOffset: 30,
+    messageXOffset: 35,
     messageWidthOffset: 95,
     y: 0
 }
@@ -127,7 +127,7 @@ config.default.dialogue.bottomBoxSettings = {
     height: 200,
     wordWrap: true,
     messageYOffset: 20,
-    messageXOffset: -95,
+    messageXOffset: -90,
     messageWidthOffset: 95,
     y: 250
 }

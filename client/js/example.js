@@ -15,10 +15,10 @@ let exampleState = {
         }
 
         let antDataBottom =  {
-            sprite: [275, 0, config.exampleState.bruce.spriteKey],
+            sprite: [275, 0, config.exampleState.john.spriteKey],
             width: 100,
             height: 100,
-            caption: "Bruce"
+            caption: "John"
         }
 
         let diaImageDataTop = {
@@ -34,32 +34,38 @@ let exampleState = {
         } 
 
         let messageDataTop = {
-            message: "This is new message data!",
+            message: "I'm Ean!",
             imageData: diaImageDataTop
         }
 
         let messageDataBottom = {
-            message: "Testing if this works!",
+            message: "I'm John!",
             imageData: diaImageDataBottom
         }
 
-        let dia = PhaserDialogue();
-        dia.init(game, boxSettingsTop);
-        dia.displayMessage(messageDataTop, () => {
-            dia.typewrite = true;
-        })
-        dia.queMessage({
-            message: "we must continue this fight!"
-        })
-        dia.queMessage({message: "honestly, thank you for playing!"})
+        let eanDialogue = PhaserDialogue();
+        eanDialogue.init(game, boxSettingsTop);
+        eanDialogue.displayMessage(messageDataTop);
+        eanDialogue.displayMessage({message: "???"},() => {
+            eanDialogue.typewrite = true;
+            eanDialogue.clearQue();
+            eanDialogue.displayMessage({message: "Whats up! My name is Ean!!"});
+            eanDialogue.queMessage({message: "I love to program!"});
+            eanDialogue.queMessage({message: "...and I also love Thai Food!!!"}, () => {
+                johnDialogue.displayMessage({message: "Nice man! I love Thai Food too!!!"});
+            });
+            eanDialogue.queMessage({message: "I'm about to go get down with this game jam, wanna roll?"}, () => {
+                johnDialogue.displayMessage({message: "Yah let's do it!"}, () => {
+                    eanDialogue.displayMessage({message: "Let's go!"});
+                });
+            });
+        });
 
 
-
-        let dia2 = PhaserDialogue();
-        dia2.init(game, boxSettingsBottom)
-        dia2.typewrite = true;
-        dia2.displayMessage(messageDataBottom);
-
+        let johnDialogue = PhaserDialogue();
+        johnDialogue.init(game, boxSettingsBottom)
+        johnDialogue.displayMessage(messageDataBottom);
+        johnDialogue.typewrite = true;
         
         
 
